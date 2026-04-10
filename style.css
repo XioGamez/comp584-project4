@@ -1,13 +1,60 @@
 html {
     box-sizing: border-box;
 }
+
 *, *:before, *:after {
     box-sizing: inherit;
 }
+
 body {
-  padding: 0;
-  margin: 0;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    place-items: center;          /* center horizontally + vertically */
+    height: 100vh;                /* full viewport height */
+    font-family: "Times New Roman", sans-serif;
 }
+
 .wrapper {
     width: 400px;
+    background: #000000;
 }
+
+.screen {
+    background: #000000;
+    color: white;
+    font-size: 2rem;
+    padding: 20px;
+    text-align: right;
+    display: grid;
+    align-items: center;     /* vertical center */
+    justify-items: end;      /* align text to the right */
+}
+
+.calculator-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);        /* 4 equal columns */
+    gap: 2px;                                     /* spacing between buttons */
+    grid-auto-rows: 75px;                         /* fixed row height */
+}
+
+button {
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;              /* pointer cursor on hover */
+    transition: transform 0.1s, opacity 0.2s;  /* smooth interaction effects */
+}
+
+button:hover {
+    opacity: 0.85;                /* fade when hovering */
+}
+
+button:active {
+    transform: scale(0.95);       /* shrink when clicked */
+}
+
+.zero { grid-column: span 3; }
+.number { color: black; }
+.operator { background: #d88905; color: white; }  /* operator buttons (+, -, ×, ÷) */
+.equal { background: #d88905; color: white; }     /* equals button (=) */
+.clear { color: black; grid-column: span 2; }     /* clear button (C / AC) */
