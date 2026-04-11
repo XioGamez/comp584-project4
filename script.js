@@ -11,6 +11,7 @@ function updateScreen(value) {  // update the display screen
 }
 
 function appendNumber(num) {  // appends num to current input
+    if (num === '.' && current.includes('.')) return;  // prevents multiple decimal points
     current += num;  // add num to current input
     updateScreen(current);  // updates display
 }
@@ -33,7 +34,7 @@ function compute() {  // calculation
     switch (operator) {  // operation performed based on operator
         case '+': result = prev + curr; break;  // add
         case '-': result = prev - curr; break;  // subtract
-        case '*': result = prev * curr; break;  // multiply
+        case 'x': result = prev * curr; break;  // multiply
         case '/': result = curr === 0 ? 'Error' : prev / curr; break;  // divide; prevent division by 0
         default: return;
     }
@@ -63,7 +64,7 @@ document.querySelectorAll('button').forEach(btn => {
         const action = btn.dataset.action;  // get button action (clear/equals)
 
         if (value) {  // button has value/operator
-            if (['+', '-', '*', '/'].includes(value)) {  // if operator
+            if (['+', '-', 'x', '/'].includes(value)) {  // if operator
                 chooseOperator(value);
             } else {  // otherwise number
                 appendNumber(value);

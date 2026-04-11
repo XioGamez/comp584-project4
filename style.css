@@ -53,7 +53,7 @@ button:active {
     transform: scale(0.95);       /* shrink when clicked */
 }
 
-.zero { grid-column: span 3; }
+.zero { grid-column: span 2; }
 .number { color: black; }
 .operator { background: #d88905; color: white; }  /* operator buttons (+, -, ×, ÷) */
 .equal { background: #d88905; color: white; }     /* equals button (=) */
